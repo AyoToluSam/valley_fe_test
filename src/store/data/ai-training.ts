@@ -1,4 +1,4 @@
-import { avatar1, avatar2, avatar3, avatar4, user } from "@/assets";
+import { avatar1, avatar2, avatar3, avatar4, avatar5, user } from "@/assets";
 import type { IconType } from "@/constants/common";
 
 export type TrainingType = (typeof filterTypes)[number]["value"];
@@ -6,7 +6,8 @@ export type TrainingType = (typeof filterTypes)[number]["value"];
 export type TrainingHistory = {
   id: string;
   type: string;
-  status: "included" | "excluded";
+  status?: "included" | "excluded";
+  isIncluded: boolean;
   trainingTitle: string;
   campaign: string;
   prospect: {
@@ -33,14 +34,14 @@ export const mockTrainingHistory: TrainingHistory[] = [
   {
     id: "1",
     type: "EDIT",
-    status: "included",
+    // status: "included",
+    isIncluded: true,
     trainingTitle: "Writing Style Updated",
     campaign: "Early Stage Founders",
     prospect: {
       id: "1",
       name: "Keshav Ketan Saini",
-      avatar:
-        "https://images.unsplash.com/photo-1502685104226-1c2b0f8d3a4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=60",
+      avatar: avatar5,
     },
     createdAt: "2025-07-27T09:14:32Z",
     createdBy: {
@@ -58,7 +59,8 @@ export const mockTrainingHistory: TrainingHistory[] = [
   {
     id: "2",
     type: "CUSTOM",
-    status: "included",
+    // status: "included",
+    isIncluded: true,
     trainingTitle: "Writing Style Updated",
     campaign: "Early Stage Founders",
     prospect: {
@@ -82,7 +84,8 @@ export const mockTrainingHistory: TrainingHistory[] = [
   {
     id: "3",
     type: "PROMPT",
-    status: "included",
+    // status: "included",
+    isIncluded: true,
     trainingTitle: "Message generated", //Title most likely won't be given like this from the API in a real scenario, but I'm saving time here.
     campaign: "Early Stage Founders",
     prospect: {
@@ -107,7 +110,8 @@ export const mockTrainingHistory: TrainingHistory[] = [
   {
     id: "4",
     type: "FEEDBACK",
-    status: "included",
+    // status: "included",
+    isIncluded: true,
     trainingTitle: "Message rated", //Title most likely won't be given like this from the API in a real scenario, but I'm saving time here.
     campaign: "Early Stage Founders",
     prospect: {
@@ -130,7 +134,8 @@ export const mockTrainingHistory: TrainingHistory[] = [
   {
     id: "5",
     type: "UPDATED_DATAPOINT",
-    status: "included",
+    // status: "included",
+    isIncluded: true,
     trainingTitle:
       "James Laurensky and 45 others have been added to Performance tracking", //Title most likely won't be given like this from the API in a real scenario, but I'm saving time here.
     campaign: "Early Stage Founders",

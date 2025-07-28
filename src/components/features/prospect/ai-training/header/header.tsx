@@ -23,6 +23,7 @@ type TrainingHeaderProps = {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   selectedFilters: Filters[];
   toggle: (filter: Filters, isChecked: boolean) => void;
+  setIncluded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const TrainingHeader = ({
@@ -32,6 +33,7 @@ const TrainingHeader = ({
   setSearch,
   selectedFilters,
   toggle,
+  setIncluded,
 }: TrainingHeaderProps) => {
   return (
     <div className="flex items-center justify-between gap-2">
@@ -41,12 +43,14 @@ const TrainingHeader = ({
             <TabsTrigger
               value="included"
               className="rounded-custom text-muted-foreground data-[state=active]:text-foreground text-[12px] px-2.5"
+              onClick={() => setIncluded(true)}
             >
               Included
             </TabsTrigger>
             <TabsTrigger
               value="excluded"
               className="rounded-custom text-muted-foreground data-[state=active]:text-foreground text-[12px] px-2.5"
+              onClick={() => setIncluded(false)}
             >
               Excluded
             </TabsTrigger>

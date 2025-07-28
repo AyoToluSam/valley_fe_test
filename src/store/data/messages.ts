@@ -1,32 +1,67 @@
+import { avatar5 } from "@/assets";
+
 export type Message = {
   id: string;
   type: string;
+  title: string;
+  prompt?: string;
   content: string;
-  timestamp: string;
-  prospectId: string;
+  score?: number;
+  prospect: {
+    id: string;
+    name: string;
+    avatar: string;
+  };
   campaignName?: string;
+  generatedBy: {
+    id: string;
+    name: string;
+  };
+  createdAt: string;
   status?: string;
   rating?: number;
 };
 
 export const mockMessages: Message[] = [
   {
-    id: "1",
-    type: "custom",
+    id: "2",
+    type: "PROMPT",
+    prompt: "Make it more cheerful",
+    title: "Version 2",
+    score: 24,
     content:
-      "Hey Drew,\n\nHope you're having a great week so far! 😊 We've got some juicy reads for you about self-custody and shaking off the chains of traditional finance. Check it out.\n\nBest regards,\nAndrew",
-    timestamp: "Tue, May 12 9:14 AM",
-    prospectId: "1",
+      "Hey Crew,\n\nHope you're having a great week so far! 😊 We've got some juicy reads for you about self-custody and shaking off the chains of traditional finance. Check it out.\n\nBest regards,\nAndrew",
+    createdAt: "2025-07-27T12:00:00Z",
+    prospect: {
+      id: "1",
+      name: "Keshav Ketan Saini",
+      avatar: avatar5,
+    },
     campaignName: "Campaign name",
-    status: "draft",
+    generatedBy: {
+      id: "1",
+      name: "You",
+    },
+    status: "PENDING",
+    rating: 1.5,
   },
   {
-    id: "2",
-    type: "generated",
-    content: "Generated message content here...",
-    timestamp: "8 days ago",
-    prospectId: "1",
+    id: "1",
+    type: "CUSTOM",
+    title: "Version 1",
+    content:
+      "Hey Crew,\n\n We've got some wonderful reads for you about self-custody, to shaking off the chains of traditional finance. Check it out.\n\nBest regards,\nAndrew",
+    createdAt: "2025-07-25T09:14:00Z",
+    prospect: {
+      id: "1",
+      name: "Keshav Ketan Saini",
+      avatar: avatar5,
+    },
     campaignName: "Campaign name",
-    rating: 4.5,
+    generatedBy: {
+      id: "000",
+      name: "Valley",
+    },
+    status: "DRAFT",
   },
 ];

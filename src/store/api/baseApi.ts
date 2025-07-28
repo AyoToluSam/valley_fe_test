@@ -1,4 +1,5 @@
 import { type TrainingHistory } from "@/store/data/ai-training";
+import type { Message } from "@/store/data/messages";
 import { type Prospect } from "@/store/data/prospect";
 import { type UserProfile } from "@/store/data/user";
 import type { APIQueryArguments, APIResponse } from "@/store/types";
@@ -32,12 +33,22 @@ export const baseApi = createApi({
         response.data,
       providesTags: ["training_history"],
     }),
+
+    getMessages: builder.query<Message[], void>({
+      query: () => ({
+        url: "/messages",
+        method: "GET",
+      }),
+      transformResponse: (response: APIResponse<Message[]>) => response.data,
+      providesTags: ["messages"],
+    }),
   }),
-  tagTypes: ["user_profile", "prospect", "training_history"],
+  tagTypes: ["user_profile", "prospect", "training_history", "messages"],
 });
 
 export const {
   useGetUserProfileQuery,
   useGetProspectQuery,
   useGetAITrainingHistoryQuery,
+  useGetMessagesQuery,
 } = baseApi;

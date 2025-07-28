@@ -111,7 +111,7 @@ export const formatTrainingContentTitle = (training: TrainingHistory) => {
       <span className="flex">
         {training.content.contentData?.map(({ name, avatar }) => {
           return (
-            <Avatar className="h-9 w-9 -mr-2 last:mr-0">
+            <Avatar key={name + avatar} className="h-9 w-9 -mr-2 last:mr-0">
               <AvatarImage src={avatar} alt="Profile Picture" />
               <AvatarFallback className="bg-primary/10 text-primary font-medium">
                 {getInitials(name)}

@@ -10,6 +10,8 @@ const AITraining = () => {
 
   const { toggle, selectedFilters, filterParams } = useFilters();
 
+  const [included, setIncluded] = useState(true);
+
   return (
     <div className="flex flex-col gap-4 h-11/12">
       <TrainingHeader
@@ -19,8 +21,11 @@ const AITraining = () => {
         setSearch={setSearch}
         toggle={toggle}
         selectedFilters={selectedFilters}
+        setIncluded={setIncluded}
       />
-      <TrainingHistory filterParams={filterParams} />
+      <TrainingHistory
+        filterParams={{ ...filterParams, isIncluded: included }}
+      />
     </div>
   );
 };

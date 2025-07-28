@@ -1,4 +1,5 @@
 import { mockTrainingHistory } from "@/store/data/ai-training";
+import { mockMessages } from "@/store/data/messages";
 import { mockProspects } from "@/store/data/prospect";
 import { mockUserProfile } from "@/store/data/user";
 import type { BaseQueryFn } from "@reduxjs/toolkit/query";
@@ -6,7 +7,7 @@ import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 export const delay = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
-export const mockBaseQuery: BaseQueryFn = async ({ url, method }) => {
+export const mockBaseQuery: BaseQueryFn = async ({ url, method, params }) => {
   try {
     await delay(600);
 
@@ -51,7 +52,21 @@ export const mockBaseQuery: BaseQueryFn = async ({ url, method }) => {
           status: 200,
           message: "Training History fetched successfully",
           errors: null,
-          data: mockTrainingHistory,
+          data: mockTrainingHistory.filter(
+            (history) =>
+              params.isIncluded === history.isIncluded ||
+              Object.values(params).includes(history.type)
+          ),
+        },
+      };
+    }
+    if (url === "/messages" && method === "GET") {
+      return {
+        data: {
+          status: 200,
+          message: "Messages fetched successfully",
+          errors: null,
+          data: mockMessages,
         },
       };
     }
