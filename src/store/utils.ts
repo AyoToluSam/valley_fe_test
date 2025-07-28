@@ -1,4 +1,6 @@
+import { mockTrainingHistory } from "@/store/data/ai-training";
 import { mockProspects } from "@/store/data/prospect";
+import { mockUserProfile } from "@/store/data/user";
 import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 
 export const delay = (ms: number) =>
@@ -8,6 +10,16 @@ export const mockBaseQuery: BaseQueryFn = async ({ url, method }) => {
   try {
     await delay(600);
 
+    if (url === "/user-profile" && method === "GET") {
+      return {
+        data: {
+          status: 200,
+          message: "User Profile fetched successfully",
+          errors: null,
+          data: mockUserProfile,
+        },
+      };
+    }
     const prospectMatch = url.match(/^\/prospects\/(\d+)$/);
     if (prospectMatch && method === "GET") {
       const id = prospectMatch[1];
@@ -32,6 +44,16 @@ export const mockBaseQuery: BaseQueryFn = async ({ url, method }) => {
           },
         };
       }
+    }
+    if (url === "/training-history" && method === "GET") {
+      return {
+        data: {
+          status: 200,
+          message: "Training History fetched successfully",
+          errors: null,
+          data: mockTrainingHistory,
+        },
+      };
     }
 
     return {

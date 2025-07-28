@@ -187,6 +187,18 @@
     background-position: top left, top left;
   }
 
+  .bg-gradient-no-fade {
+    background-image: radial-gradient(
+      to right,
+      #e9b97e,
+      #f4ae8b 20%,
+      #e7a6af 40%,
+      #edd9bd 60%,
+      #a1cdd3 80%,
+      #e4c69d
+    );
+  }
+
   .bg-gradient-border {
     border: 1px solid transparent;
     border-image: linear-gradient(

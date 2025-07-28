@@ -162,7 +162,7 @@ const Profile = ({ prospectId }: ProfileProps) => {
                         key={"plus"}
                         variant={"outline"}
                         className={
-                          "rounded-custom text-alt text-[10px] bg-gradient-border [&>svg]:size-3 bg-gray-200 px-1 bg-gradient-border-2 cursor-pointer"
+                          "rounded-custom text-alt text-[10px] [&>svg]:size-3 px-1 bg-gradient-border cursor-pointer"
                         }
                       >
                         <Plus />
