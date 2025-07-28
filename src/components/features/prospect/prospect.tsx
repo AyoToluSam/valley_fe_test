@@ -1,3 +1,4 @@
+import Profile from "@/components/features/prospect/profile/profile";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Brain, FileText } from "lucide-react";
 import { TbInbox } from "react-icons/tb";
@@ -49,7 +50,7 @@ const Prospect = ({ prospectId }: ProspectProps) => {
         </Tabs>
       </div>
 
-      <div>Profile</div>
+      <Profile prospectId={prospectId} />
     </div>
   );
 };

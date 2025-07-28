@@ -1,5 +1,8 @@
+import { avatar5 } from "@/assets";
+import type { IconType } from "@/constants/common";
+
 export type Tag = {
-  iconType: string;
+  iconType: IconType;
   title: string;
 };
 
@@ -27,7 +30,7 @@ export const mockProspects: Prospect[] = [
   {
     id: "1",
     name: "Keshav Ketan Saini",
-    avatar: "",
+    avatar: avatar5,
     title: "Senior Software Engineer",
     icpFit: 94,
     campaign: "Early-Stage Founders",
