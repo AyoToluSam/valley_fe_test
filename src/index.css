@@ -116,5 +116,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "PP Neue Montreal", sans-serif;
   }
 }
