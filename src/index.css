@@ -122,7 +122,6 @@
 
 @layer utilities {
   .text-primary,
-  .text-primary-foreground,
   .text-black,
   .text-foreground {
     color: #333333;

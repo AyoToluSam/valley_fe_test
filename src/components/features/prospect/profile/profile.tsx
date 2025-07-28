@@ -37,6 +37,14 @@ import {
 } from "react-icons/tb";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type ProfileProps = {
   prospectId: string;
@@ -160,15 +168,48 @@ const Profile = ({ prospectId }: ProfileProps) => {
                         <Plus />
                       </Badge>
                     </PopoverTrigger>
-                    <PopoverContent>
-                      <div>
-                        <Label>Enter Tag Name</Label>
-                        <Input />
+                    <PopoverContent align="end" className="flex flex-col gap-2">
+                      <div className="flex flex-col gap-1">
+                        <Label htmlFor="tag" className="text-[12px]">
+                          Tag Name
+                        </Label>
+                        <Input
+                          id="tag"
+                          placeholder="Enter tag name..."
+                          required
+                          className="text-[12px] placeholder:text-[12px]"
+                        />
                       </div>
-                      <div>
-                        <Label>Select Icon Type</Label>
-                        <Input />
+                      <div className="flex flex-col gap-1">
+                        <Label htmlFor="icon" className="text-[12px]">
+                          Icon Type
+                        </Label>
+                        <Select name="icon" required>
+                          <SelectTrigger
+                            id="icon"
+                            className="text-[12px] w-full"
+                          >
+                            <SelectValue placeholder="Choose icon..." />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Object.entries(iconTypes).map(
+                              ([key, getValue], index) => {
+                                return (
+                                  <SelectItem
+                                    key={key + index.toString()}
+                                    value="key"
+                                    className="capitalize"
+                                  >
+                                    {getValue()}
+                                    {key.toLowerCase()}
+                                  </SelectItem>
+                                );
+                              }
+                            )}
+                          </SelectContent>
+                        </Select>
                       </div>
+                      <Button className="w-full mt-[2px]">Save</Button>
                     </PopoverContent>
                   </Popover>
                 )}

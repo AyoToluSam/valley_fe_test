@@ -1,4 +1,7 @@
+import AITraining from "@/components/features/prospect/ai-training/ai-training";
+import Messages from "@/components/features/prospect/messages/messages";
 import Profile from "@/components/features/prospect/profile/profile";
+import Research from "@/components/features/prospect/research/research";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Brain, FileText } from "lucide-react";
 import { TbInbox } from "react-icons/tb";
@@ -9,7 +12,7 @@ type ProspectProps = {
 
 const Prospect = ({ prospectId }: ProspectProps) => {
   return (
-    <div className="flex gap-10 px-8 pt-8 rounded-[5px] h-full max-h-full">
+    <div className="flex gap-10 px-8 pt-8 bg-gradient-custom bg-gradient-custom::after rounded-[5px] h-full max-h-full">
       <div className="flex-1 flex flex-col">
         <Tabs defaultValue="training" className="flex-1 flex flex-col">
           <TabsList className="w-full justify-start bg-transparent px-0 py-0 h-fit border-b border-border rounded-none">
@@ -37,15 +40,15 @@ const Prospect = ({ prospectId }: ProspectProps) => {
           </TabsList>
 
           <TabsContent value="training" className="flex-1 m-0">
-            AI Training
+            <AITraining />
           </TabsContent>
 
           <TabsContent value="messages" className="flex-1 m-0">
-            Messages
+            <Messages />
           </TabsContent>
 
           <TabsContent value="research" className="flex-1 m-0">
-            Research
+            <Research />
           </TabsContent>
         </Tabs>
       </div>
