@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# Valley Technical Interview — Message Overlay Interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a UI reconstruction of the screen overlay with focus on the `AI Training` and `Messages` tabs. The goal was to demonstrate logical component structure, data fetching patterns using RTK Query, and interactions based on reasonable user expectations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technical Approach & Architectural Decisions
 
-## Expanding the ESLint configuration
+- **Framework & Stack**: Built with **React**, **TypeScript**, **TailwindCSS**, and **ShadCn UI**, with **Redux Toolkit + RTK Query** for data state management and API stubbing.
+- **State Management**: Local component state is used for simple UI controls (e.g., active tab), while RTK Query handles asynchronous data and caching.
+- **Styling**: Tailwind, combined with ShadCn components for consistency, accessibility, and responsiveness.
+- **API Layer**: All data interactions are abstracted using RTK Query. No data is hardcoded into components. Stubbed responses are quite similar to real-world APIs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Assumptions Made & Edge Case Handling
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Assumptions**:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  - The current view is within an overlay modal context, so navigation/sidebar interactions are not relevant.
+  - The current prospect profile was selected from the valley sales strategy table and user may browse through profiles using the chevron buttons at the top of the overlay.
+  - I was meant to replace "Campaign name" and "prospect name" in the ai-training history with the actual values
+  - Many more assumptions in the fine details.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Edge Cases Handled**:
+  - API loading and error states are handled using text placeholders.
+  - If no messages are returned, a friendly empty state is shown.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ♿ Accessibility Considerations
+
+- Semantic elements like `button`, `nav`, and `section` are used.
+- Sufficient contrast is maintained for text and icons.
+- Tooltips and icon labels are used where relevant.
+
+---
+
+## ⚡ Performance Considerations
+
+- **RTK Query** provides **caching** and **auto-refetching**, reducing redundant network calls.
+- Minimal component re-renders through memoization and isolated data zones.
+
+---
+
+## 🔧 What I’d Refactor With More Time
+
+1. **Unit and Integration Testing**:
+   - Add test coverage using `Jest` and `React Testing Library`.
+2. **Form and Modal Logic**:
+   - Implement interactions for the "Custom Message" and "Feedback" buttons.
+3. **Implement interactions for Archive, Delete and Do not contact**:
+   - I would have implemented confirmation modals for the above mentioned actions from the ellipsis button.
+4. **Implement filter function for ai-training-history data correctly**:
+   - I was able to implement filter for Included and Excluded, but didn't have enough time to implement for the different history types.
+5. **Creating Loading Skeletons in place of text placeholders**:
+   - Implement shadcn loading skeletons for AI-Training, Messages and Profile data fetching.
+6. **Global Error/Toast Handling**:
+   - Introduce a global feedback mechanism for GET endpoints on errors or success messages.I like to handle feedback for action requests individually.
+7. **Context-Aware Styling**:
+   - Create a theme context and global variables for better control.
+
+---
+
+## ⏱️ Timer Submission
+
+- [Starting Loom](https://www.loom.com/share/27d6367a7233456e81226ab51b823a37?sid=1ef6f9c9-d921-4bbb-88d0-de77449d2b67)
+
+- [Ending Loom](https://www.loom.com/share/e0613d56d46442bda043503aed422667?sid=3e26284b-9d0e-4d3e-a669-305a29c409f4)
+
+---
+
+Please feel free to reach out for any clarification or walkthrough of application.
+
+---
