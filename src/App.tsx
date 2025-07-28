@@ -1,3 +1,4 @@
+import Prospect from "@/components/features/prospect/prospect";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -27,7 +28,7 @@ import { TbHandStop } from "react-icons/tb";
 const App = () => {
   const [prospectId, setProspectId] = useState<string | null>("1");
   // Set initialState with a value so the drawer is open by default, given that's the main task to see.
-  // Ideally, it will be null, and the value is set when a prospect is selected on the list table.
+  // Ideally, initial state will be null, and the value is set when a prospect is selected on the list table.
 
   const pageCount = 540;
   const [page, setPage] = useState(1);
@@ -46,7 +47,7 @@ const App = () => {
           <Button variant={"outline"}>Open Drawer</Button>
         </DrawerTrigger>
 
-        <DrawerContent className="min-w-fit max-h-full p-2.5 bg-gray-50">
+        <DrawerContent className="min-w-[1090px] max-h-full p-2.5 bg-gray-50">
           <DrawerHeader className="flex flex-row items-center justify-between py-2">
             <div className="flex flex-row items-center gap-2">
               <DrawerClose>
@@ -96,7 +97,7 @@ const App = () => {
             </DropdownMenu>
           </DrawerHeader>
 
-          <div></div>
+          <Prospect prospectId={prospectId!} />
         </DrawerContent>
       </Drawer>
     </div>
