@@ -119,3 +119,51 @@
     font-family: "PP Neue Montreal", sans-serif;
   }
 }
+
+@layer utilities {
+  .text-primary,
+  .text-primary-foreground,
+  .text-black,
+  .text-foreground {
+    color: #333333;
+  }
+  .text-alt {
+    color: #4e4e4e;
+  }
+  .text-grey {
+    color: #22222266;
+  }
+  .text-muted-foreground {
+    color: #7a7a7a;
+  }
+
+  .bg-blue-custom {
+    background-color: #00b7c8;
+  }
+  .border-blue-custom {
+    border: 1px solid #00b7c8;
+  }
+  .bg-green-custom {
+    background-color: #148158;
+  }
+  .bg-red-custom {
+    background-color: #ca3a31;
+  }
+  .text-red-custom {
+    color: #ca3a31;
+  }
+
+  .bg-gray-custom {
+    background-color: #f6f6f6;
+  }
+  .bg-black-custom {
+    background-color: #09090b;
+  }
+  .bg-muted-custom {
+    background-color: #7a7a7a;
+  }
+
+  .rounded-custom {
+    border-radius: 4px;
+  }
+}
