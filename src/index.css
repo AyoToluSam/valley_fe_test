@@ -165,4 +165,56 @@
   .rounded-custom {
     border-radius: 4px;
   }
+
+  .bg-gradient-custom {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 1%,
+        #fff 8%
+      ),
+      linear-gradient(
+        to right,
+        #e9b97e,
+        #f4ae8b 20%,
+        #e7a6af 40%,
+        #edd9bd 60%,
+        #a1cdd3 80%,
+        #e4c69d
+      );
+    background-blend-mode: normal;
+    background-size: 100% 100%, 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top left, top left;
+  }
+
+  .bg-gradient-border {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+        to right,
+        #e9b97e,
+        #f4ae8b 20%,
+        #e7a6af 40%,
+        #edd9bd 60%,
+        #a1cdd3 80%,
+        #e4c69d
+      )
+      1;
+    border-radius: 6px;
+  }
+
+  .bg-gradient-border-2 {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+        to right,
+        #e9b97e,
+        #f4ae8b 20%,
+        #e7a6af 40%,
+        #edd9bd 60%,
+        #a1cdd3 80%,
+        #e4c69d
+      )
+      2;
+    background: #f2f2f2;
+    border-radius: 6px;
+  }
 }
